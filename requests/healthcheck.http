@@ -1,0 +1,5 @@
+## Make a healthcheck request
+http://localhost:3000/healthcheck HTTP/1.2
+Content-Type: application/json 
+
+{}

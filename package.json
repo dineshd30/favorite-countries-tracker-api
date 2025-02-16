@@ -1,0 +1,27 @@
+{
+    "name": "favorite-countries-tracker-api",
+    "version": "1.0.0",
+    "description": "Node.js Express API that integrates with the free REST Countries API to manage user's list of favorite countries.",
+    "main": "src/server.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dineshd30/favorite-countries-tracker-api.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/dineshd30/favorite-countries-tracker-api/issues"
+    },
+    "homepage": "https://github.com/dineshd30/favorite-countries-tracker-api#readme",
+    "dependencies": {
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.0",
+        "@types/node": "^22.13.4"
+    }
+}
