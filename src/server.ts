@@ -7,7 +7,7 @@ import { corsHandler } from './middleware/corsHandler';
 import { notFoundHandler } from './middleware/notFoundHandler';
 import { log } from 'console';
 
-const app = express();
+export const app = express();
 let server: http.Server<typeof http.IncomingMessage, typeof http.ServerResponse>
 
 const main = async () => {
