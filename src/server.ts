@@ -5,7 +5,8 @@ import { SERVER } from './config/config';
 import { loggingHandler } from './middleware/loggingHandler';
 import { corsHandler } from './middleware/corsHandler';
 import { notFoundHandler } from './middleware/notFoundHandler';
-import { log } from 'console';
+import { errorHandler } from './middleware/errorHandler';
+import routes from './routes';
 
 export const app = express();
 let server: http.Server<typeof http.IncomingMessage, typeof http.ServerResponse>
@@ -16,11 +17,14 @@ const main = async () => {
 
   app.use(loggingHandler);
   app.use(corsHandler);
+  app.use(errorHandler)
 
   app.get('/healthcheck', (req, res, next) => {
     res.status(200).json({ message: 'Server is running' }).end();
     return;
   });
+
+  app.use('/v1', routes);
 
   app.use(notFoundHandler);
 
@@ -34,26 +38,5 @@ export const closeServer = (callback: any) => {
   logging.info('Gracefully closing server');
   server && server.close(callback);
 }
-
-process.on('unhandledRejection', (error: Error) => {
-  logging.error(error.message);
-  closeServer(() => {
-    process.exit(1);
-  });
-});
-
-process.on('SIGTERM', () => {
-  logging.warn('SIGTERM received');
-  closeServer(() => {
-    process.exit(0);
-  });
-});
-
-process.on('SIGINT', () => {
-  logging.warn('SIGINT received');
-  closeServer(() => {
-    process.exit(0);
-  });
-});
 
 main();

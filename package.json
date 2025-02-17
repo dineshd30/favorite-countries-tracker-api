@@ -18,10 +18,12 @@
     },
     "homepage": "https://github.com/dineshd30/favorite-countries-tracker-api#readme",
     "dependencies": {
+        "axios": "^1.7.9",
         "dotenv": "^16.4.7",
         "express": "^4.21.2"
     },
     "devDependencies": {
+        "@types/axios": "^0.14.4",
         "@types/express": "^5.0.0",
         "@types/jest": "^29.5.14",
         "@types/node": "^22.13.4",

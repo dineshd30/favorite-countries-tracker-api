@@ -1,0 +1,5 @@
+## Make a healthcheck request
+http://localhost:3000/v1/countries/ind HTTP/1.2
+Content-Type: application/json 
+
+{}
